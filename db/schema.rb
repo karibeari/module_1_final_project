@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_161649) do
+ActiveRecord::Schema.define(version: 2019_03_26_204357) do
 
   create_table "lists", force: :cascade do |t|
     t.integer "user_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_03_26_161649) do
     t.string "city"
     t.text "directions"
     t.text "description"
-    t.integer "length"
+    t.float "length"
   end
 
   create_table "users", force: :cascade do |t|
