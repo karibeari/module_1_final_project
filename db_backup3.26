@@ -1,0 +1,26 @@
+[2019-03-26T16:10:52.688999 #46360] DEBUG -- :   User Load (3.8ms)  SELECT "users".* FROM "users"
+=> [#<User:0x00007fd7e31a3e08 id: 1, name: "Ben", age: nil, experience_level: nil, location: nil, profile: nil>,
+#<User:0x00007fd7e31a0708 id: 2, name: "Kari", age: nil, experience_level: nil, location: nil, profile: nil>,
+#<User:0x00007fd7e31a0528 id: 3, name: "Mavis Donkelthorpe", age: 21, experience_level: "3", location: "Denver", profile: "I just moved to Denver and I am trying get into hiking!">,
+#<User:0x00007fd7e31a0348
+ id: 4,
+ name: "Hattie McDonald",
+ age: 87,
+ experience_level: "8",
+ location: "Golden",
+ profile: "I've been hiking since before I was born; now i'm old.  It's my goal to hike every gosh-darn trail in colorado before I kick the bucket!">,
+#<User:0x00007fd7e31a01b8
+ id: 5,
+ name: "Polonius Anderson",
+ age: 27,
+ experience_level: "9",
+ location: "Denver",
+ profile: "I'm a super-athlete/peronal trainer/life coach and I want to hike the gnarliest trails Colorado has to offer bro!">,
+#<User:0x00007fd7e31a5668 id: 6, name: "Regina St.Wenceslaus", age: 35, experience_level: "7", location: "Littleton", profile: "I have three kids with whom I want to share my love of the outdoors.">,
+#<User:0x00007fd7e31a7e18
+ id: 7,
+ name: "Dorothy Mexico",
+ age: 30,
+ experience_level: "6",
+ location: "Denver",
+ profile: "I'm a high powered bussiness woman and I need to know quick hiking routes so that I can fit exercise in my schedule">]

@@ -9,6 +9,8 @@ ActiveRecord::Base.establish_connection(
   database: 'db/mytrails.db'
 )
 
+ben = User.find(1)
+trail1 = Trail.find(1)
 
 binding.pry
 1
