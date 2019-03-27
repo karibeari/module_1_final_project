@@ -11,6 +11,7 @@ ActiveRecord::Base.establish_connection(
 
 ben = User.find(1)
 trail1 = Trail.find(1)
+trail2 = Trail.find(2)
 
 binding.pry
 1
