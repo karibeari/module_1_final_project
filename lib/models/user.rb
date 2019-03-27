@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :trails, through: :lists
 
   def get_list
-     List.where(user: self)
+     self.lists
   end
 
 
@@ -25,15 +25,44 @@ class User < ActiveRecord::Base
   def add_to_done_list(trail_name) #trail_name shoul be string
     self.get_list.each do |list|
       if list.trail.name == trail_name
-        list.completed = true
-        list.save
+        List.update(list.id, :completed => true)
       end
     end
   end
 
-  def see_trails_completed
-    lists = self.get_list.select{|list| list.completed == true}
+  def completed#shows trails completed
+    get_trails_from_list(self.get_list.select{|list| list.completed == true})
+  end
+
+  def wish_list#shows trails on wish list
+    get_trails_from_list(self.get_list.select{|list| list.completed == false})
+  end
+
+  def get_trails_from_list(lists)#helper method
     lists.map{|list| list.trail}
+  end
+
+  def my_location
+    self.location
+  end
+
+  def find_trail_by_city
+    Trail.all.where(city: my_location)
+  end
+
+  def find_buddies
+    buddies = []
+    self.wish_list.each do |trail|
+      matches = List.all.where.not(user: self).where(trail_id: trail.id, completed: false )
+        matches.each do |match|
+          buddies << {match.user.name => match.trail.name}
+        end
+    end
+    buddies
+  end
+
+  def miles_hiked
+    self.completed.map(&:length).sum
   end
 
 
