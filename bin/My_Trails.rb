@@ -4,4 +4,8 @@ Welcome.welcome_message
 
 Welcome.user_id?
 
-hiker = Welcome.user
+$hiker = Welcome.user
+
+Menu.display_menu
+
+Menu.run_task
