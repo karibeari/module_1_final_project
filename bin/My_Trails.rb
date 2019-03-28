@@ -6,6 +6,8 @@ Welcome.user_id?
 
 $hiker = Welcome.user
 
+puts "Welcome #{$hiker.name}!"
+
 Menu.display_menu
 
 #Menu.run_task

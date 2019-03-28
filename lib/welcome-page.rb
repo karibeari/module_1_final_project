@@ -9,9 +9,7 @@ class Welcome
   end
 
   def self.user_id?
-    puts "Please enter your user id.  If you have forgotten it, \n
-    then enter your first and last name.  If you need to make a \n
-    new account, type NEW."
+    puts "\n\nPlease enter your user id.  If you have forgotten it, \n\nthen enter your first and last name.  If you need to make a \n\nnew account, type NEW."
 
     input = gets.chomp
 

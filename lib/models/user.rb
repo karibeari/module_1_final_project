@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   def add_to_wish_list(trail_id)
     if List.find_by(trail_id: trail_id, user: self, completed: false)
-        puts "This trail is already on your wishlist"
+        puts "\nThis trail is already on your wishlist\n"
     else
       List.create(trail: Trail.find(trail_id), user: self, completed: false)
     end
@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
 
 
   def add_to_done_list(trail_id) #trail_id shoul be string
-
     self.lists.each do |list|
       if list.trail_id == trail_id
         List.update(list.id, :completed => true)
@@ -28,12 +27,10 @@ class User < ActiveRecord::Base
 
   def wish_list#shows trails on wish list
     List.all.where(user: self, completed: false)
-
   end
 
   def print_trails_from_list(lists)#helper method
-    lists.map{|list| list.trail}.map{|trail|puts "#{trail.id} - #{trail.name}"}
-
+    lists.map{|list| list.trail}.map{|trail|puts "\n#{trail.id} - #{trail.name}\n"}
   end
 
   def my_location
@@ -48,18 +45,24 @@ class User < ActiveRecord::Base
     buddies = []
     self.wish_list.each do |list|
       matches = List.all.where.not(user: self).where(trail_id: list.trail_id, completed: false )
-        matches.each do |match|
-          buddies << {match.user.name => match.trail.name}
-        end
-
+      matches.each do |match|
+        buddies << {match.user.name => match.trail.name}
+      end
     end
     buddies
   end
 
   def miles_hiked
-
     self.completed.map{|list| list.trail.length}.sum
+  end
 
+  def format_trails(trails_array)
+    trails_array.each do |trail|
+      puts "\n#{trail.id} - #{trail.name}"
+      puts "Location: #{trail.city}"
+      puts "Length: #{trail.length}"
+      puts "Description: #{trail.description}\n\n"
+    end
   end
 
 
