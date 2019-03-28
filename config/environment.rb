@@ -9,13 +9,13 @@ ActiveRecord::Base.establish_connection(
   database: 'db/mytrails.db'
 )
 
-# ben = User.find(1)
-# kari = User.find(2)
-# mavis = User.find(3)
-# hattie = User.find(4)
-# polonius = User.find(5)
-# regina = User.find(6)
-# dorothy = User.find(7)
+ben = User.find(1)
+kari = User.find(2)
+mavis = User.find(3)
+hattie = User.find(4)
+polonius = User.find(5)
+regina = User.find(6)
+dorothy = User.find(7)
 #
 #
 #

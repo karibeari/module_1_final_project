@@ -3,43 +3,36 @@ class User < ActiveRecord::Base
   has_many :lists
   has_many :trails, through: :lists
 
-  def get_list
-     self.lists
-  end
-
-
-  def get_trails
-    self.trails
-  end
-
-
-  def add_to_wish_list(trail)#trail is an object
-    if self.get_list.find{|list| list.trail_id == trail.id}
+  def add_to_wish_list(trail_id)
+    if List.find_by(trail_id: trail_id, user: self, completed: false)
         puts "This trail is already on your wishlist"
     else
-      List.create(trail: trail, user: self, completed: false)
+      List.create(trail: Trail.find(trail_id), user: self, completed: false)
     end
   end
 
 
-  def add_to_done_list(trail_name) #trail_name shoul be string
-    self.get_list.each do |list|
-      if list.trail.name == trail_name
+  def add_to_done_list(trail_id) #trail_id shoul be string
+
+    self.lists.each do |list|
+      if list.trail_id == trail_id
         List.update(list.id, :completed => true)
       end
     end
   end
 
   def completed#shows trails completed
-    get_trails_from_list(self.get_list.select{|list| list.completed == true})
+     completed_trails = List.all.where(user: self, completed: true)
+     self.print_trails_from_list(completed_trails)
   end
 
   def wish_list#shows trails on wish list
-    get_trails_from_list(self.get_list.select{|list| list.completed == false})
+    wish_list_trails = List.all.where(user: self, completed: false)
+    self.print_trails_from_list(wish_list_trails)
   end
 
-  def get_trails_from_list(lists)#helper method
-    lists.map{|list| list.trail}
+  def print_trails_from_list(lists)#helper method
+    lists.map{|list| list.trail}.map{|trail|puts "#{trail.id} - #{trail.name}"}
   end
 
   def my_location

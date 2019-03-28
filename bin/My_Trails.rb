@@ -8,4 +8,4 @@ $hiker = Welcome.user
 
 Menu.display_menu
 
-Menu.run_task
+#Menu.run_task

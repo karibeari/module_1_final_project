@@ -14,6 +14,7 @@ class Menu
     puts "7 - Add to your wish list.\n\n"
     puts "8 - Add a trail to your done list.\n\n"
     @@selection = gets.chomp.to_i
+    Menu.run_task
   end
 
   def self.run_task
@@ -38,9 +39,15 @@ class Menu
         $hiker.add_to_wish_list(trail)
         puts "\n #{trail.name} has been added to your wish list.\n"
       when 8
-
+        #p Trail.all
+        puts "Enter the trail id that you would like to add to your done list."
+        input = gets.chomp.to_i
+        $hiker.add_to_done_list(input)
+        #puts "\n #{trail.name} has been added to your wish list.\n"
+        puts $hiker.completed
 
     end
+Menu.display_menu
   end
 
 end
