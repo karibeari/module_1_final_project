@@ -20,9 +20,9 @@ class Menu
   def self.run_task
     case self.selection
       when 1
-        $hiker.wish_list.each{|trail|puts trail.name}
+        $hiker.print_trails_from_list($hiker.wish_list)
       when 2
-        $hiker.completed.each{|trail|puts trail.name}
+        $hiker.print_trails_from_list($hiker.completed)
       when 3
         puts "You have hiked #{$hiker.miles_hiked} miles so far.  Great Job!"
       when 4
@@ -36,18 +36,20 @@ class Menu
         puts "Enter the trail id that you would like to add to your wish list."
         input = gets.chomp.to_i
         trail = Trail.find(input)
-        $hiker.add_to_wish_list(trail)
+        $hiker.add_to_wish_list(input)
         puts "\n #{trail.name} has been added to your wish list.\n"
       when 8
-        #p Trail.all
+        $hiker.print_trails_from_list($hiker.wish_list)
         puts "Enter the trail id that you would like to add to your done list."
         input = gets.chomp.to_i
+        trail = Trail.find(input)
         $hiker.add_to_done_list(input)
-        #puts "\n #{trail.name} has been added to your wish list.\n"
-        puts $hiker.completed
+        puts "\n #{trail.name} has been added to your done list.\n"
+        puts "Here is a list of trails you have done:"
+        $hiker.print_trails_from_list($hiker.completed)
 
     end
-Menu.display_menu
+    Menu.display_menu
   end
 
 end

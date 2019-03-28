@@ -22,17 +22,18 @@ class User < ActiveRecord::Base
   end
 
   def completed#shows trails completed
-     completed_trails = List.all.where(user: self, completed: true)
-     self.print_trails_from_list(completed_trails)
+     List.all.where(user: self, completed: true)
+
   end
 
   def wish_list#shows trails on wish list
-    wish_list_trails = List.all.where(user: self, completed: false)
-    self.print_trails_from_list(wish_list_trails)
+    List.all.where(user: self, completed: false)
+
   end
 
   def print_trails_from_list(lists)#helper method
     lists.map{|list| list.trail}.map{|trail|puts "#{trail.id} - #{trail.name}"}
+
   end
 
   def my_location
@@ -45,17 +46,20 @@ class User < ActiveRecord::Base
 
   def find_buddies
     buddies = []
-    self.wish_list.each do |trail|
-      matches = List.all.where.not(user: self).where(trail_id: trail.id, completed: false )
+    self.wish_list.each do |list|
+      matches = List.all.where.not(user: self).where(trail_id: list.trail_id, completed: false )
         matches.each do |match|
           buddies << {match.user.name => match.trail.name}
         end
+
     end
     buddies
   end
 
   def miles_hiked
-    self.completed.map(&:length).sum
+
+    self.completed.map{|list| list.trail.length}.sum
+
   end
 
 
