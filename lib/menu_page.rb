@@ -13,7 +13,8 @@ class Menu
     puts "6 - See a list of all trails.\n\n"
     puts "7 - Add to your wish list.\n\n"
     puts "8 - Add a trail to your done list.\n\n"
-    puts "9 - Exit the program.\n\n"
+    puts "9 - See your profile.\n\n"
+    puts "10 - Exit the program.\n\n"
     @@selection = gets.chomp.to_i
     Menu.run_task
   end
@@ -49,6 +50,12 @@ class Menu
         puts "\nHere is a list of trails you have done:\n"
         $hiker.print_trails_from_list($hiker.completed)
       when 9
+        puts "\nName: #{$hiker.name}\n"
+        puts "\nAge: #{$hiker.age}\n"
+        puts "\nLocation: #{$hiker.location}\n"
+        puts "\nExperience Level: #{$hiker.experience_level}\n"
+        puts "\nProfile: #{$hiker.profile}\n"
+      when 10
         puts "\nThank you for visiting My Trails!  Happy hiking!\n\n"
         Process.exit!(true)
     end
