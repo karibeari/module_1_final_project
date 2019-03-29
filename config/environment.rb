@@ -37,5 +37,5 @@ dorothy = User.find(7)
 # mavis.add_to_wish_list(trail3)
 
 
-# binding.pry
-# 1
+binding.pry
+ 1

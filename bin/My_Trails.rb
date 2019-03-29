@@ -6,8 +6,6 @@ Welcome.user_id?
 
 $hiker = Welcome.user
 
-puts "Welcome #{$hiker.name}!".green
-
 Menu.display_menu
 
 #Menu.run_task
