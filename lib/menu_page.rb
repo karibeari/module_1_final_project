@@ -50,11 +50,7 @@ class Menu
         puts "\nHere is a list of trails you have done:\n"
         $hiker.print_trails_from_list($hiker.completed)
       when 9
-        puts "\nName: #{$hiker.name}\n"
-        puts "\nAge: #{$hiker.age}\n"
-        puts "\nLocation: #{$hiker.location}\n"
-        puts "\nExperience Level: #{$hiker.experience_level}\n"
-        puts "\nProfile: #{$hiker.profile}\n"
+        $hiker.print_user_profile
       when 10
         puts "\nThank you for visiting My Trails!  Happy hiking!\n\n"
         Process.exit!(true)

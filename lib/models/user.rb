@@ -65,5 +65,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def print_user_profile
+    puts "\nName: #{self.name}\n"
+    puts "\nAge: #{self.age}\n"
+    puts "\nLocation: #{self.location}\n"
+    puts "\nExperience Level: #{self.experience_level}\n"
+    puts "\nProfile: #{self.profile}\n"
+  end
+
 
 end

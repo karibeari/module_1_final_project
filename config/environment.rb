@@ -9,6 +9,8 @@ ActiveRecord::Base.establish_connection(
   database: 'db/mytrails.db'
 )
 
+ActiveRecord::Base.logger = nil
+
 ben = User.find(1)
 kari = User.find(2)
 mavis = User.find(3)

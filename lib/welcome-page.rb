@@ -21,7 +21,7 @@ class Welcome
       @@user = User.find(input.to_i)
     end
 
-    p @@user
+    @@user.print_user_profile
   end
 
 
