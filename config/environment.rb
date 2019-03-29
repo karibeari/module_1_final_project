@@ -1,6 +1,7 @@
 require 'sinatra/activerecord'
 require 'require_all'
 require 'pry'
+require 'colored'
 
 require_all 'lib'
 
@@ -8,6 +9,8 @@ ActiveRecord::Base.establish_connection(
   adapter:'sqlite3',
   database: 'db/mytrails.db'
 )
+
+ActiveRecord::Base.logger = nil
 
 ben = User.find(1)
 kari = User.find(2)
