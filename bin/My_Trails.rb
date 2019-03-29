@@ -1,5 +1,7 @@
 require_relative '../config/environment.rb'
 
+logo
+
 Welcome.welcome_message
 
 Welcome.user_id?
