@@ -5,11 +5,11 @@ class Welcome
   end
 
   def self.welcome_message
-    puts "Welcome to My Trails"
+    puts "Welcome to My Trails".bold.blue
   end
 
   def self.user_id?
-    puts "\n\nPlease enter your user id.  If you have forgotten it, \n\nthen enter your first and last name.  If you need to make a \n\nnew account, type NEW."
+    puts "\nPlease enter your user id.  If you have forgotten it, \n\nthen enter your first and last name.  If you need to make a \n\nnew account, type NEW.".bold.blue
 
     input = gets.chomp
 
@@ -26,15 +26,15 @@ class Welcome
 
 
   def self.make_new_user
-    puts "What is your first and last name?"
+    puts "What is your first and last name?".magenta
     full_name = gets.chomp
-    puts "What is your age?"
+    puts "What is your age?".magenta
     age = gets.chomp.to_i
-    puts "What is your experience leve? (1-10)"
+    puts "What is your experience leve? (1-10)".magenta
     experience_level = gets.chomp.to_i
-    puts "What is your location (nearest city)?"
+    puts "What is your location (nearest city)?".magenta
     location = gets.chomp
-    puts "Please write a brief profile."
+    puts "Please write a brief profile.".magenta
     profile = gets.chomp
 
     User.create(name: full_name, age: age, experience_level: experience_level, location: location, profile: profile)

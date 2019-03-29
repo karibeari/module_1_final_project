@@ -6,7 +6,7 @@ Welcome.user_id?
 
 $hiker = Welcome.user
 
-puts "Welcome #{$hiker.name}!"
+puts "Welcome #{$hiker.name}!".green
 
 Menu.display_menu
 

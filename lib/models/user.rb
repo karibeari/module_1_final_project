@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   def add_to_wish_list(trail_id)
     if List.find_by(trail_id: trail_id, user: self, completed: false)
-        puts "\nThis trail is already on your wishlist\n"
+        puts "\nThis trail is already on your wishlist\n".red
     else
       List.create(trail: Trail.find(trail_id), user: self, completed: false)
     end
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
 
   def print_trails_from_list(lists)
-    lists.map{|list| list.trail}.map{|trail|puts "\n#{trail.id} - #{trail.name}\n"}
+    lists.map{|list| list.trail}.map{|trail|puts "\n#{trail.id} - #{trail.name}\n".bold.cyan}
   end
 
 
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   def find_trail_by_city
     city_trails = Trail.all.where(city: my_location)
-    city_trails.empty? ? (puts "Sorry, there are no trails in your city.") : city_trails
+    city_trails.empty? ? (puts "Sorry, there are no trails in your city.".red) : city_trails
   end
 
 
@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
         buddies << {match.user.name => match.trail.name}
       end
     end
-    puts "Sorry, you do not share any trails on your wish list with other hikers.  Try adding more trails to your wish list." if buddies.empty?
+    puts "Sorry, you do not share any trails on your wish list with other hikers.  Try adding more trails to your wish list.".red if buddies.empty?
 
     buddies
   end
@@ -69,20 +69,20 @@ class User < ActiveRecord::Base
 
   def format_trails(trails_array)
     trails_array.each do |trail|
-      puts "\n#{trail.id} - #{trail.name}"
-      puts "Location: #{trail.city}"
-      puts "Length: #{trail.length}"
-      puts "Description: #{trail.description}\n\n"
+      puts "\n#{trail.id} - #{trail.name}".magenta
+      puts "Location: #{trail.city}".magenta
+      puts "Length: #{trail.length}".magenta
+      puts "Description: #{trail.description}\n\n".magenta
     end
   end
 
 
   def print_user_profile
-    puts "\nName: #{self.name}\n"
-    puts "\nAge: #{self.age}\n"
-    puts "\nLocation: #{self.location}\n"
-    puts "\nExperience Level: #{self.experience_level}\n"
-    puts "\nProfile: #{self.profile}\n"
+    puts "\nName: #{self.name}\n".magenta
+    puts "\nAge: #{self.age}\n".magenta
+    puts "\nLocation: #{self.location}\n".magenta
+    puts "\nExperience Level: #{self.experience_level}\n".magenta
+    puts "\nProfile: #{self.profile}\n".magenta
   end
 
 end

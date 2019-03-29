@@ -1,6 +1,7 @@
 require 'sinatra/activerecord'
 require 'require_all'
 require 'pry'
+require 'colored'
 
 require_all 'lib'
 
