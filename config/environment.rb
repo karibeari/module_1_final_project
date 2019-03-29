@@ -12,13 +12,16 @@ ActiveRecord::Base.establish_connection(
 
 ActiveRecord::Base.logger = nil
 
-ben = User.find(1)
-kari = User.find(2)
-mavis = User.find(3)
-hattie = User.find(4)
-polonius = User.find(5)
-regina = User.find(6)
-dorothy = User.find(7)
+# ben = User.find(1)
+# kari = User.find(2)
+# mavis = User.find(3)
+# hattie = User.find(4)
+# polonius = User.find(5)
+# regina = User.find(6)
+# dorothy = User.find(7)
+# eugene = User.find(8)
+# mary = User.find(9)
+
 #
 #
 #
@@ -37,5 +40,5 @@ dorothy = User.find(7)
 # mavis.add_to_wish_list(trail3)
 
 
-binding.pry
- 1
+#binding.pry
+# 1
