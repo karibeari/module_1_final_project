@@ -69,6 +69,9 @@ npm test
 Ben Reilly – [@iBenthinkin](https://twitter.com/iBenthinkin) – benjamin.reilly@gmail.com
 [https://github.com/Ibenthinkin](https://github.com/Ibenthinkin)
 
+Kari Ferenczy – klferenczy@gmail.com
+[https://github.com/karibeari](https://github.com/karibeari)
+
 
 
 Distributed under the MIT license. See ``mit`` for more information.
